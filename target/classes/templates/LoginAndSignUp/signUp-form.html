@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+
+    <!-- Bootstrap CSS -->
+    <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+          integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" rel="stylesheet">
+
+    <!--    css-->
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <title>Sign UP</title>
+</head>
+<body>
+<div class="container">
+    <h3>Are you new Here?</h3>
+    <hr>
+    <p class="h4 mb-4">Sign up the form, I can assure you that this will not take much time.</p>
+    <form action="#" method="post" th:action="@{/roles/signUp}" th:object="${roles}">
+        <input th:field="*{id}" type="hidden">
+        <input class="form-control mb-4 w-25 forDisplay" placeholder="First Name" th:field="*{firstName}" type="text">
+        <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}"  th:errorclass="error"/>
+        <input class="form-control mb-4 w-25 forDisplay" placeholder="Last Name" th:field="*{lastName}" type="text">
+        <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}"  th:errorclass="error"/>
+        <input class="form-control mb-4 w-25 forDisplay" placeholder="Email" th:field="*{email}" type="text">
+        <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}"  th:errorclass="error"/>
+        <button class="btn btn-info col-2" type="submit">Save</button>
+    </form>
+    <hr>
+    <a th:href="@{/employees/list}">Already have an account?</a>
+</div>
+</body>
+</html>
